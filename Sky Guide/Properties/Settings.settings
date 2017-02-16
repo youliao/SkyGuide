@@ -1,0 +1,67 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="SkyGuide.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="RowsColumns" Type="System.Windows.Size" Scope="User">
+      <Value Profile="(Default)">10,4</Value>
+    </Setting>
+    <Setting Name="PostOrderByColumn" Type="DAL.PostOrderBy" Scope="User">
+      <Value Profile="(Default)">submitted_on</Value>
+    </Setting>
+    <Setting Name="PoolOrderByColumn" Type="DAL.PoolOrderBy" Scope="User">
+      <Value Profile="(Default)">created_at</Value>
+    </Setting>
+    <Setting Name="PostOrderMode" Type="DAL.OrderMode" Scope="User">
+      <Value Profile="(Default)">ASC</Value>
+    </Setting>
+    <Setting Name="PoolOrderMode" Type="DAL.OrderMode" Scope="User">
+      <Value Profile="(Default)">ASC</Value>
+    </Setting>
+    <Setting Name="SiteSelected" Type="DAL.Site[]" Scope="User">
+      <Value Profile="(Default)">
+                    &lt;ArrayOfSite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+                        &lt;Site&gt;Yande&lt;/Site&gt;
+                    &lt;/ArrayOfSite&gt;
+                </Value>
+    </Setting>
+    <Setting Name="RatingSelected" Type="DAL.Rating[]" Scope="User">
+      <Value Profile="(Default)">
+                    &lt;ArrayOfRating xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+                        &lt;Rating&gt;Safe&lt;/Rating&gt;
+                    &lt;/ArrayOfRating&gt;
+                </Value>
+    </Setting>
+    <Setting Name="PreferSelected" Type="DAL.Prefer[]" Scope="User">
+      <Value Profile="(Default)">
+                    &lt;ArrayOfPrefer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+                        &lt;Prefer&gt;Good&lt;/Prefer&gt;
+                        &lt;Prefer&gt;Normal&lt;/Prefer&gt;
+                    &lt;/ArrayOfPrefer&gt;
+                </Value>
+    </Setting>
+    <Setting Name="ImageFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="PostInfoWindowWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1280</Value>
+    </Setting>
+    <Setting Name="PostInfoWindowHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">800</Value>
+    </Setting>
+    <Setting Name="PostInfoWindowState" Type="System.Windows.WindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+    <Setting Name="StatusFolder" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="MainWindowWidth" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">1280</Value>
+    </Setting>
+    <Setting Name="MainWindowHeight" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">800</Value>
+    </Setting>
+    <Setting Name="MainWindowState" Type="System.Windows.WindowState" Scope="User">
+      <Value Profile="(Default)">Normal</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

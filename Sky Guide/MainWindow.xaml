@@ -1,0 +1,86 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SkyGuide"
+        xmlns:Properties="clr-namespace:SkyGuide.Properties"
+        xmlns:Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" x:Class="SkyGuide.MainWindow"
+        mc:Ignorable="d"
+        Title="SkyGuide" 
+        Width="{Binding Mode=TwoWay,Path=MainWindowWidth,Source={x:Static Properties:Settings.Default}}"
+        Height="{Binding Mode=TwoWay,Path=MainWindowHeight,Source={x:Static Properties:Settings.Default}}" 
+        WindowState="{Binding Mode=TwoWay,Path=MainWindowState,Source={x:Static Properties:Settings.Default}}"
+        WindowStartupLocation="CenterScreen" 
+        Background="#FFBFC2F7" 
+        Closed="Window_Closed" Icon="yuu.ico">
+    <Window.Resources>
+        <Storyboard x:Key="OnChecked1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="searchControl">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Visibility>Collapsed</Visibility>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Cursor)" Storyboard.TargetName="toggleButton">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Cursor>ScrollE</Cursor>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="OnUnchecked1">
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.Cursor)" Storyboard.TargetName="toggleButton">
+                <DiscreteObjectKeyFrame KeyTime="0">
+                    <DiscreteObjectKeyFrame.Value>
+                        <Cursor>ScrollW</Cursor>
+                    </DiscreteObjectKeyFrame.Value>
+                </DiscreteObjectKeyFrame>
+            </ObjectAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="searchControl">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+        </Storyboard>
+    </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="ToggleButton.Checked" SourceName="toggleButton">
+            <BeginStoryboard Storyboard="{StaticResource OnChecked1}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="ToggleButton.Unchecked" SourceName="toggleButton">
+            <BeginStoryboard x:Name="OnUnchecked1_BeginStoryboard" Storyboard="{StaticResource OnUnchecked1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <local:SearchControl x:Name="searchControl" HorizontalAlignment="Stretch" Width="Auto" Grid.Column="0" Margin="10,30,5,0" 
+                             PageIndexSet="searchControl_PageIndexSet" 
+                             VerticalAlignment="Stretch"
+                             postOrderByColumn="{Binding Mode=TwoWay,Path=PostOrderByColumn,Source={x:Static Properties:Settings.Default}}"
+                             poolOrderByColumn="{Binding Mode=TwoWay,Path=PoolOrderByColumn,Source={x:Static Properties:Settings.Default}}"
+                             postOrderMode="{Binding Mode=TwoWay,Path=PostOrderMode,Source={x:Static Properties:Settings.Default}}" 
+                             poolOrderMode="{Binding Mode=TwoWay,Path=PoolOrderMode,Source={x:Static Properties:Settings.Default}}" 
+                             RatingSelected ="{Binding Mode=TwoWay,Path=RatingSelected,Source={x:Static Properties:Settings.Default}}" 
+                             SiteSelected ="{Binding Mode=TwoWay,Path=SiteSelected,Source={x:Static Properties:Settings.Default}}" 
+                             PreferSelected ="{Binding Mode=TwoWay,Path=PreferSelected,Source={x:Static Properties:Settings.Default}}" 
+                             pageSize="{Binding PreviewBoxCount,Mode=TwoWay, ElementName=previewListControl}"           
+                             />
+        <ToggleButton x:Name="toggleButton" Grid.Column="1" Width="5" Cursor="ScrollW" Style="{DynamicResource ToggleButtonStyle1}" Background="#00000000" Panel.ZIndex="1" HorizontalAlignment="Left"/>
+        <local:PreviewListControl x:Name="previewListControl" 
+                                  d:LayoutOverrides="Width" 
+                                  Grid.Column="1" 
+                                  Grid.ColumnSpan="1" 
+                                  MouseWheel="previewListControl_MouseWheel"
+                                  ColumnsRows="{Binding Mode=TwoWay,Path=RowsColumns,Source={x:Static Properties:Settings.Default}}"
+                                  PostOrderByColumn="{Binding Mode=TwoWay,Path=PostOrderByColumn,Source={x:Static Properties:Settings.Default}}"
+                                  PoolOrderByColumn="{Binding Mode=TwoWay,Path=PoolOrderByColumn,Source={x:Static Properties:Settings.Default}}"
+                                  PostOrderMode="{Binding Mode=TwoWay,Path=PostOrderMode,Source={x:Static Properties:Settings.Default}}" 
+                                  PoolOrderMode="{Binding Mode=TwoWay,Path=PoolOrderMode,Source={x:Static Properties:Settings.Default}}" 
+                                  CurrentMode="{Binding ModeSelected, ElementName=searchControl, IsAsync=True, Mode=OneWay}" MouseLeftButtonDown="previewListControl_MouseLeftButtonDown"
+                                  />
+    </Grid>
+</Window>
