@@ -8,9 +8,12 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <UserControl.Resources>
         <ContextMenu x:Key="ImageMenu">
+            <MenuItem Header="打开" Click="Open_MenuItem_Click"/>
+            <Separator/>
             <MenuItem Header="原始大小" Click="OrginalSize_MenuItem_Click" />
             <MenuItem Header="放大" Click="Upscale_MenuItem_Click"/>
             <MenuItem Header="缩小" Click="Downscale_MenuItem_Click"/>
+            <Separator/>
             <MenuItem Header="偏好" Click="MenuItem_Click_Single" Loaded="Prefer_MenuItem_Loaded">
                 <MenuItem Header="Good" IsCheckable="True" Click="Prefer_MenuItem_Click"/>
                 <MenuItem Header="Normal" IsCheckable="True" Click="Prefer_MenuItem_Click"/>

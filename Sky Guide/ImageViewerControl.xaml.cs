@@ -475,6 +475,14 @@ namespace SkyGuide
         }
 
         /// <summary>
+        /// 打开文件
+        /// </summary>
+        private void Open_MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("explorer", this.ImagePath);
+        }
+
+        /// <summary>
         /// 原始大小
         /// </summary>
         /// <param name="sender"></param>
