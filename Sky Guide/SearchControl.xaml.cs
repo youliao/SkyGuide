@@ -126,11 +126,11 @@ namespace SkyGuide
         {
             get
             {
-                return (OrderMode)GetValue(postOrderModeModeProperty);
+                return (OrderMode)GetValue(poolOrderModeModeProperty);
             }
             set
             {
-                SetValue(postOrderModeModeProperty, value);
+                SetValue(poolOrderModeModeProperty, value);
             }
         }
         public static readonly DependencyProperty poolOrderModeModeProperty = DependencyProperty.Register(
@@ -524,7 +524,7 @@ namespace SkyGuide
             if (this.ModeSelected == Mode.Posts)
                 this.postPreviewInfoList = BLL.Post.GetPostPreviewInfo(this.ResultSearchText, this.TagSearchText, this.RatingSelected, this.PreferSelected, this.postOrderByColumn, this.postOrderMode, this.SiteSelected);
             else
-                this.poolPreviewInfoList = BLL.Pool.GetPoolPreview(this.TagSearchText, this.RatingSelected, this.PreferSelected, this.poolOrderByColumn, this.postOrderMode, this.SiteSelected);
+                this.poolPreviewInfoList = BLL.Pool.GetPoolPreview(this.TagSearchText, this.RatingSelected, this.PreferSelected, this.poolOrderByColumn, this.poolOrderMode, this.SiteSelected);
 
             (Window.GetWindow(this) as MainWindow).Title = this.TagSearchText;
         }
